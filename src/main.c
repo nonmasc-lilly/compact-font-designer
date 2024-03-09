@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
             current_char = *token;
         } ELNCMP(token, "row") {
             token = strtok(NULL, space);
-            tmp = strtol(token + 1, &eptr, 0);
+            tmp = strtol(token, &eptr, 0);
             if(!(*token) || *eptr) {
                 printf("could not read argument, (not a number)\n");
                 continue;
