@@ -38,6 +38,9 @@ int main(int argc, char **argv) {
             filename[4096] = 0;
         }
         prompt("input> ", input, 5000);
+        if(input[0] == 0) {
+            continue;
+        }
         strcpy(intok, input);
         token = strtok(intok, space);
         IFNCMP(token, "switch") {
@@ -121,7 +124,7 @@ int main(int argc, char **argv) {
             }
             nosexit_l:
         } ELNCMP(token, "status") {
-            printf("filename: %s\n");
+            printf("filename: %s\n", filename);
             printf("current char: %d\n", current_char);
             printf("current row: %d\n", current_row);
         }
@@ -150,5 +153,5 @@ void help() {
     printf("\t  - nsexit : exits without saving\n");
     printf("\t  - exit   : exits and saves\n");
     printf("\t  - status : shows various working variables (such as current\n");
-    printf("\t             character, file, and row");
+    printf("\t             character, file, and row\n");
 }
